@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block current %}
+    <div class="container-fluid">
+        <h1>Enter patient name or id and click submit.</h1>
+        <form class="form-group" method="POST">
+            <input class="form-control" name="patient">
+            <input class="form-control" type="submit">
+        </form>
+    </div>
+{% endblock current %}
+{% block suggest %}
+    <div class="container-fluid">
+        <h2><i>Sample patient id's for demonstration:</i></h2>
+        <p>d421f5cc-123a-4cbe-9a39-98317915e221</p>
+        <p>5e265187-948b-4270-a64f-9da9ced1fc57</p>
+        <p>d0e37fe0-1729-4c9e-9581-7b269fcf9129</p>
+    </div>
+{% endblock suggest %}

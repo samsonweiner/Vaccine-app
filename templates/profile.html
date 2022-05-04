@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block current %}
+    {% for vaccine in current_vaccines %}
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                {% if vaccine.status == 'completed' %}
+                    <small class="mr-2, card-date-completed"><b>{{ vaccine.status }}</b></small>
+                {% else %}
+                    <small class="mr-2, card-date-scheduled"><b>{{ vaccine.status }}</b></small>
+                {% endif %}
+                {% for date in vaccine.dates %}
+                  <small class="text-muted">{{ date }}; </small>
+                {% endfor %}
+              </div>
+              <h2><a class="article-title" href="#">{{ vaccine.type }}</a></h2>
+              <p class="article-content"><i>{{ vaccine.info }}</i></p>
+            </div>
+          </article>
+    {% endfor %}
+{% endblock current %}
+
+{% block suggest %}
+    {% for vaccine in suggested_vaccines %}
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <small class="mr-2, card-date-suggested"><b>{{ vaccine.status }}</b></small>
+              </div>
+              <h2><a class="article-title" href="#">{{ vaccine.type }}</a></h2>
+            </div>
+          </article>
+    {% endfor %}
+{% endblock suggest %}
